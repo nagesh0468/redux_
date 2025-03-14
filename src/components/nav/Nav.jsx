@@ -15,6 +15,7 @@ function Nav() {
         <Link to='/reducer'>reducer</Link>
         <Link to='/redux'>redux</Link>
         <Link to='/login'>login</Link>
+        <Link to='/products' >Product</Link>
       </nav>
     </header>
       
