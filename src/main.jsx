@@ -4,7 +4,9 @@ import './index.css'
 import App from './App.jsx'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import store from './reducers/'
+import store from './reduxtool/reducers/index..js'
+// import store from './reducers/'
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

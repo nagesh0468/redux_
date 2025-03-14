@@ -16,6 +16,7 @@ function Nav() {
         <Link to='/redux'>redux</Link>
         <Link to='/login'>login</Link>
         <Link to='/products' >Product</Link>
+        <Link to='/products_tool' >Product_r-tool</Link>
       </nav>
     </header>
       
