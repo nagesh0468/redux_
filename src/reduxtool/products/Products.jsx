@@ -1,6 +1,6 @@
 import React, {  useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { setProduct,setError,setLoading } from '../counter/products.slice';
+import {  fetchProducts } from '../counter/products.slice';
 import styles from './product.module.css';
 
 function ProductsTool() {
@@ -8,22 +8,24 @@ function ProductsTool() {
   const dispatch = useDispatch();
   const {data , error, loading} = products;
 
-  const fetchData = async() => {
-    dispatch(setLoading(true))
-    try{
+  // const fetchData = async() => {
+  //   dispatch(setLoading(true))
+  //   try{
       
-       const response = await fetch('https://fakestoreapi.com/products');
-       const data = await response.json();
-       dispatch(setProduct(data))
-       dispatch(setLoading(false))
-    }catch(e){
-         dispatch(setError(e.message))
-         dispatch(setLoading(false))
-    }
-  }
+  //      const response = await fetch('https://fakestoreapi.com/products');
+  //      const data = await response.json();
+  //      dispatch(setProduct(data))
+  //      dispatch(setLoading(false))
+  //   }catch(e){
+  //        dispatch(setError(e.message))
+  //        dispatch(setLoading(false))
+  //   }
+  // }
 
   useEffect(()=> {
-    fetchData()
+    // fetchData()
+    dispatch(fetchProducts())
+    // fetchProducts()
   }, [dispatch])
  
   return (
@@ -41,7 +43,7 @@ function ProductsTool() {
                  <h1>RS. {product.price}</h1>
                  <button onClick={() => alert(product.id)} >add to cart</button>
               </div>
-            ))) : ( !loading && <p>no products are not available</p> )
+            ))) : ( !loading && !error && <p>no products are not available</p> )
           }
         </div>
   )
